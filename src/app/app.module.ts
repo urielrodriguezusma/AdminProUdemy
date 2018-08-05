@@ -15,6 +15,8 @@ import { PagesModule } from './pages/pages.module';
 //Temporales
 import { FormsModule } from '@angular/forms';
 
+//Servicios
+import { ServiceModule } from './services/service.module';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,11 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     PagesModule,
     FormsModule,
+    ServiceModule,
     APP_ROUTES
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
