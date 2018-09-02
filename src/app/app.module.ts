@@ -13,7 +13,7 @@ import { RegisterComponent } from './login/register.component';
 import { PagesModule } from './pages/pages.module';
 
 //Temporales
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Servicios
 import { ServiceModule } from './services/service.module';
@@ -28,6 +28,7 @@ import { ServiceModule } from './services/service.module';
     BrowserModule,
     PagesModule,
     FormsModule,
+    ReactiveFormsModule,
     ServiceModule,
     APP_ROUTES
   ],
