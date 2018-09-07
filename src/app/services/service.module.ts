@@ -8,6 +8,7 @@ import {
   SidebarService,
   SharedService,
   UsuarioService,
+  SubirArchivoService,
   LoginGuardGuard
 } from "./service.index";
 
@@ -18,6 +19,7 @@ import {
     SidebarService,
     SharedService,
     UsuarioService,
+    SubirArchivoService,
     LoginGuardGuard
   ],
   declarations: []
