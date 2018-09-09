@@ -101,8 +101,12 @@ export class UsuarioService {
 
     return this._http.put(url, usuario, { headers: header }).pipe(
       map((resp: any) => {
-        let usuarioDB: Usuario = resp.usuario;
-        this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+        
+        if (usuario._id === this.usuario._id) {
+          let usuarioDB: Usuario = resp.usuario;
+          this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+        }
+
         swal("usuario actualizado", usuario.nombre, "success");
         return true;
       })
@@ -114,11 +118,30 @@ export class UsuarioService {
       .then((resp: any) => {
         console.log(resp);
         this.usuario.img = resp.usuario.img;
-        swal("Imagen Actualizada",this.usuario.nombre,"success");
-        this.guardarStorage(id,this.token,this.usuario);
+        swal("Imagen Actualizada", this.usuario.nombre, "success");
+        this.guardarStorage(id, this.token, this.usuario);
       })
       .catch(err => {
         console.log(err);
       });
+  }
+
+  cargarUsuarios(desde: number = 0) {
+    let url = URL_SERVICIOS + "/usuario?desde=" + desde;
+    return this._http.get(url);
+  }
+
+  buscarUsuarios(termino: string) {
+    let url = URL_SERVICIOS + "/busqueda/coleccion/usuarios/" + termino;
+    return this._http.get(url).pipe(map((resp: any) => resp.usuarios));
+  }
+
+  borrarUsuario(id: string) {
+    let url = URL_SERVICIOS + "/usuario/" + id;
+    let header = new HttpHeaders({
+      token: this.token
+    });
+
+    return this._http.delete(url, { headers: header });
   }
 }

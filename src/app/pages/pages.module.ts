@@ -18,11 +18,13 @@ import { FormsModule } from '@angular/forms';
 //Graficos
 import { ChartsModule } from 'ng2-charts';
 
-//temporal
+
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 
 
@@ -38,7 +40,9 @@ import { RxjsComponent } from './rxjs/rxjs.component';
       AccountSettingsComponent,
       PromesasComponent,
       RxjsComponent,
-      ProfileComponent
+      ProfileComponent,
+      UsuariosComponent,
+      ModalUploadComponent
     ],
     imports:[
       SharedModule,
