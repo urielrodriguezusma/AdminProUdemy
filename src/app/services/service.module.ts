@@ -1,7 +1,8 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
-import { ModalUploadService } from '../components/modal-upload/modal-upload.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { ModalUploadService } from "../components/modal-upload/modal-upload.service";
+import { AuthInterceptor } from "../pages/auth.interceptor";
 
 //Servicios
 import {
@@ -11,6 +12,8 @@ import {
   UsuarioService,
   SubirArchivoService,
   LoginGuardGuard,
+  MedicoService,
+  HospitalService
 } from "./service.index";
 
 @NgModule({
@@ -22,8 +25,17 @@ import {
     UsuarioService,
     SubirArchivoService,
     LoginGuardGuard,
-    ModalUploadService
+    ModalUploadService,
+    HospitalService,
+    MedicoService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
-  declarations: []
+  declarations: [
+    
+  ]
 })
 export class ServiceModule {}

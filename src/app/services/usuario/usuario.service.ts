@@ -95,11 +95,11 @@ export class UsuarioService {
 
   actualizarUsuario(usuario: Usuario) {
     let url = URL_SERVICIOS + "/usuario/" + this.usuario._id;
-    let header = new HttpHeaders({
-      token: this.token
-    });
+    // let header = new HttpHeaders({
+    //   token: this.token
+    // });
 
-    return this._http.put(url, usuario, { headers: header }).pipe(
+    return this._http.put(url, usuario).pipe(
       map((resp: any) => {
         
         if (usuario._id === this.usuario._id) {
@@ -138,10 +138,11 @@ export class UsuarioService {
 
   borrarUsuario(id: string) {
     let url = URL_SERVICIOS + "/usuario/" + id;
-    let header = new HttpHeaders({
-      token: this.token
-    });
+     return this._http.delete(url);
+    // let header = new HttpHeaders({
+    //   token: this.token
+    // });
 
-    return this._http.delete(url, { headers: header });
+    // return this._http.delete(url, { headers: header });
   }
 }

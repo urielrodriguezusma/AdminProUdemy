@@ -85,15 +85,8 @@ export class UsuariosComponent implements OnInit {
           .borrarUsuario(usuario._id)
           .subscribe((borrado: boolean) => {
             console.log(borrado);
-            console.log(
-              "Posicion",
-              this.desde,
-              "===>Cantidad ",
-              this.usuarios.length
-            );
             this.desde =
               this.usuarios.length - 1 <= 0 ? this.desde - 5 : this.desde;
-
             this.cargarUsuarios();
             swal(
               "Usuario Eliminado",

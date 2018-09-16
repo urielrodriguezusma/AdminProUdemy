@@ -9,12 +9,13 @@ import { Router } from "@angular/router";
 export class LoginGuardGuard implements CanActivate {
   constructor(public _usuarioService: UsuarioService, public _route: Router) {}
   canActivate(): boolean {
-    if (this._usuarioService.estaLogueado()) {
-      return true;
-    } else {
-      console.log("Bloqueado por el guard");
-      this._route.navigate(["/login"]);
-      return false;
-    }
+      if (this._usuarioService.estaLogueado()) {
+        return true;
+      } else {
+        console.log("Bloqueado por el guard");
+        this._route.navigate(["/login"]);
+        return false;
+      }
+   
   }
 }
