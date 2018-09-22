@@ -58,18 +58,19 @@
           <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)">
             <i class="ti-search"></i>
           </a>
-          <form class="app-search">
-            <input type="text" class="form-control" placeholder="Search & enter">
+          <div class="app-search">
+            <input #input (keyup.enter)="buscar(input.value)" type="text" class="form-control" placeholder="Buscar & enter">
             <a class="srh-btn">
               <i class="ti-close"></i>
             </a>
-          </form>
+          </div>
         </li>
         <!-- ============================================================== -->
         <!-- Messages -->
         <!-- ============================================================== -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             <i class="mdi mdi-email"></i>
             <div class="notify">
               <span class="heartbit"></span>
@@ -149,7 +150,8 @@
         <!-- Language -->
         <!-- ============================================================== -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
             <i class="flag-icon flag-icon-us"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right animated fadeIn">
@@ -167,7 +169,8 @@
         <!-- Profile -->
         <!-- ============================================================== -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
             <img [src]="usuario.img|imagen" alt="user" class="profile-pic" />
           </a>
           <div class="dropdown-menu dropdown-menu-right animated fadeIn">
@@ -180,7 +183,8 @@
                   <div class="u-text">
                     <h4>{{usuario.nombre}}</h4>
                     <p class="text-muted">{{usuario.email}}</p>
-                    <a [routerLink]="[ '/perfil' ]" routerLinkActive="active" class="btn btn-rounded btn-danger btn-sm">Ver perfil</a>
+                    <a [routerLink]="[ '/perfil' ]" routerLinkActive="active" class="btn btn-rounded btn-danger btn-sm">Ver
+                      perfil</a>
                   </div>
                 </div>
               </li>
