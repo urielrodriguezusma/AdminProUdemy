@@ -27,6 +27,23 @@ export class UsuarioService {
     this.cargarStorage();
   }
 
+  renuevaToken() {
+    let url = URL_SERVICIOS + "/login/renuevatoken";
+    return this._http.post(url, {}).pipe(
+      map((resp: any) => {
+        this.token = resp.token;
+        localStorage.setItem("token", this.token);
+        console.log("Token Renovado");
+        return true;
+      }),
+      catchError(err => {
+        this._route.navigate(['/login']);
+        swal("Token", "No es posible renovar el token", "error");
+        return throwError(err);
+      })
+    );
+  }
+
   logout() {
     this.usuario = null;
     this.token = "";
@@ -103,7 +120,7 @@ export class UsuarioService {
         return resp.usuario;
       }),
       catchError(err => {
-        swal(err.error.mensaje,err.error.errors.message,'error');
+        swal(err.error.mensaje, err.error.errors.message, "error");
         return throwError(err);
       })
     );
@@ -125,7 +142,7 @@ export class UsuarioService {
         return true;
       }),
       catchError(err => {
-        swal(err.error.mensaje,err.error.errors.message,'error');
+        swal(err.error.mensaje, err.error.errors.message, "error");
         return throwError(err);
       })
     );
